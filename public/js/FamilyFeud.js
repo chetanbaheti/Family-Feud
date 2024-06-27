@@ -216,6 +216,7 @@ var app = {
     },
     wrongAnswer:()=>{
         app.wrong++
+        app.playWrong()
         console.log("wrong: "+ app.wrong )
         var wrong = app.board.find(".wrongBoard")
         $(wrong).find("img:nth-child("+app.wrong+")").show()
@@ -253,9 +254,15 @@ var app = {
                 break;
         }
     },
-    
+
+    playWrong: () =>{
+        const audio = new Audio('public/sounds/wrong.mp3');
+        audio.play();
+    },
     // Inital function
     init: () => {
+
+
 
         $.getJSON(app.jsonFile, app.jsonLoaded);
 
