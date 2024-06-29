@@ -201,6 +201,7 @@ var app = {
         });
     },
     flipCard: (n) => {
+        app.playApplause()
         console.log("card");
         console.log(n);
         var card = $('[data-id="' + n + '"]');
@@ -254,8 +255,11 @@ var app = {
                 break;
         }
     },
-
-    playWrong: () =>{
+    playApplause: () => {
+        const audio = new Audio('public/sounds/applause.mp3');
+        audio.play();
+    },
+    playWrong: () => {
         const audio = new Audio('public/sounds/wrong.mp3');
         audio.play();
     },
